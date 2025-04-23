@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image and font size</title>
+  <style>
+    h1{text-align: center;
+    font-style: italic;}
+    h2{text-align: center;
+    font-style: oblique;}
+    #c{text-align: center;}
+
+    body {
+      width: 100vw;
+      height: 100vh;
+
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ3Ek9YRwptQnxfKPjICI6MT1u76vt9WfvUw&s'); 
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+    <h1>Hello Everyone..!!!</h1>
+        <h2>Good Morning....</h2>
+        <p id="c">Myself <b>Pranita Patil</b> studying in Walchand Institute Of Technology,Solapur.<br>
+    I am From Kolhapur.</p>
+    <p id="c"><b><u>Address:</u></b> Seth Walchand Hirachand marg, Ashok Chowk, Solapur-6.</p>
+  
+  <button onclick="setRepeat()">Repeat Image</button>
+  <button onclick="setNoRepeat()">No Repeat Image</button>
+  
+  <script>
+    function setRepeat() {
+      document.body.style.backgroundRepeat = 'repeat';
+    }
+
+    function setNoRepeat() {
+      document.body.style.backgroundRepeat = 'no-repeat';
+    }
+  </script>
+</body>
+</html>

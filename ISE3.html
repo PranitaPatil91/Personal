@@ -1,0 +1,100 @@
+<?php
+
+$video_path = "C:\Users\Public\Videos\Sample Videos.mp4";  
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        .video-container {
+            position: relative;
+            width: 80%;
+            margin: auto;
+            background: black;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .controls input[type="range"] {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="myVideo" width="100%" height="auto">
+              <source src="C:\Users\Public\Videos\Sample Videos.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="controls">
+         
+            <button id="playPauseBtn">Play</button>
+
+           
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+
+            
+            <button id="fullscreenBtn">Fullscreen</button>
+        </div>
+    </div>
+
+    <script>
+        
+        const video = document.getElementById('myVideo');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const volumeControl = document.getElementById('volume');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+       
+        playPauseBtn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        });
+
+       
+        volumeControl.addEventListener('input', function() {
+            video.volume = volumeControl.value;
+        });
+
+      
+        fullscreenBtn.addEventListener('click', function() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { 
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { 
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { 
+                video.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
